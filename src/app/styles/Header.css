@@ -47,7 +47,7 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  opacity:0.75;
+  opacity: 0.75;
 }
 
 .hdr-logo {
@@ -130,6 +130,9 @@ body {
   transform: translateY(-1px);
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HAMBURGER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .hdr-hamburger {
   display: none;
   flex-direction: column;
@@ -138,6 +141,8 @@ body {
   border: none;
   cursor: pointer;
   padding: 6px;
+  z-index: 1100;
+  position: relative;
 }
 
 .hdr-ham-line {
@@ -153,6 +158,26 @@ body {
 .hdr-ham-line.open:nth-child(2) { opacity: 0; }
 .hdr-ham-line.open:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   OVERLAY BACKDROP — separate element, not ::before
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.hdr-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+
+.hdr-overlay.open {
+  opacity: 1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE DRAWER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .hdr-mobile-menu {
   display: none;
   flex-direction: column;
@@ -171,21 +196,13 @@ body {
   transform: translateX(100%);
   transition: transform 0.32s ease;
   overflow-y: auto;
+  /* Fix for iOS Safari — ensure full height */
+  height: 100%;
+  height: -webkit-fill-available;
 }
 
 .hdr-mobile-menu.open {
   transform: translateX(0);
-}
-
-.hdr-mobile-menu.open::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 260px;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
 }
 
 .hdr-drawer-close {
@@ -204,6 +221,7 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
+  flex-shrink: 0;
 }
 
 .hdr-drawer-close:hover {
@@ -224,6 +242,11 @@ body {
   box-sizing: border-box;
   text-align: center;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
+  /* Ensure minimum tap target */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hdr-mobile-link:hover {
@@ -249,16 +272,27 @@ body {
     linear-gradient(#080808, #080808) padding-box,
     linear-gradient(135deg, #39FF14, #4ADE80, #10B981) border-box;
   transition: box-shadow 0.2s;
+  /* Ensure minimum tap target */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hdr-mobile-cta:hover {
   box-shadow: 0 0 20px rgba(74, 222, 128, 0.35);
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media (max-width: 900px) {
   :root { --hdr-px: 24px; }
-  .hdr-nav { display: none; }
-  .hdr-cta { display: none; }
-  .hdr-hamburger { display: flex; }
+
+  .hdr-nav     { display: none; }
+  .hdr-cta     { display: none; }
+  .hdr-hamburger   { display: flex; }
+  .hdr-overlay     { display: block; pointer-events: none; }
+  .hdr-overlay.open { pointer-events: auto; }
   .hdr-mobile-menu { display: flex; }
 }
