@@ -1,0 +1,301 @@
+/* ─────────────────────────────────────────
+   ABOUT OUTER
+───────────────────────────────────────── */
+.abt-outer {
+  background-color: #080808;
+  width: 100%;
+  padding: 96px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle bg accent */
+.abt-outer::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(74, 222, 128, 0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   HEADER BLOCK
+───────────────────────────────────────── */
+.abt-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 680px;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.abt-head--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* eyebrow */
+.abt-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #4ADE80;
+  margin: 0;
+}
+
+.abt-eyebrow-line {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4ADE80);
+  flex-shrink: 0;
+}
+.abt-eyebrow-line--r {
+  background: linear-gradient(90deg, #4ADE80, transparent);
+}
+
+/* title */
+.abt-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.abt-title-grad {
+  background: linear-gradient(135deg, #39FF14 0%, #4ADE80 50%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* desc */
+.abt-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.9;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* ─────────────────────────────────────────
+   STATS ROW
+───────────────────────────────────────── */
+.abt-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+}
+
+.abt-stat {
+  flex: 1;
+  padding: 20px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.3s ease;
+}
+
+.abt-stat:last-child {
+  border-right: none;
+}
+
+.abt-stat:hover {
+  background: rgba(74, 222, 128, 0.04);
+}
+
+.abt-stat-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  line-height: 1;
+  background: linear-gradient(135deg, #39FF14 0%, #4ADE80 50%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.abt-stat-lbl {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.06em;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────
+   CARDS GRID
+───────────────────────────────────────── */
+.abt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ─────────────────────────────────────────
+   CARD
+───────────────────────────────────────── */
+.abt-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.abt-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.abt-card:hover {
+  background: rgba(74, 222, 128, 0.05);
+  border-color: rgba(74, 222, 128, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(74, 222, 128, 0.12),
+    0 8px 40px rgba(74, 222, 128, 0.1);
+}
+
+/* shimmer top line */
+.abt-card-shine {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  pointer-events: none;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.abt-card:hover .abt-card-shine {
+  background: linear-gradient(90deg, transparent, rgba(74,222,128,0.45), transparent);
+}
+
+/* top row: index + icon */
+.abt-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.abt-card-index {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: rgba(74, 222, 128, 0.45);
+  transition: color 0.3s ease;
+}
+
+.abt-card:hover .abt-card-index {
+  color: rgba(74, 222, 128, 0.9);
+}
+
+.abt-card-icon {
+  font-size: 1.1rem;
+  color: rgba(74, 222, 128, 0.5);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.abt-card:hover .abt-card-icon {
+  color: #4ADE80;
+  transform: rotate(45deg);
+}
+
+/* title */
+.abt-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* desc */
+.abt-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .abt-outer { padding: 80px 60px; }
+  .abt-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .abt-outer { padding: 72px 40px; gap: 48px; }
+  .abt-grid { grid-template-columns: 1fr; gap: 12px; }
+  .abt-title { font-size: 2.4rem; }
+}
+
+@media (max-width: 600px) {
+  .abt-outer { padding: 56px 20px; gap: 40px; }
+  .abt-title { font-size: 2rem; }
+  .abt-stats { flex-direction: column; border-radius: 14px; }
+  .abt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .abt-stat:last-child { border-bottom: none; }
+}
+
+@media (max-width: 400px) {
+  .abt-title { font-size: 1.7rem; }
+  .abt-card { padding: 24px 20px; }
+}
