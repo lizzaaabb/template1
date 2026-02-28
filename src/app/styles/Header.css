@@ -131,23 +131,34 @@ body {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   HAMBURGER
+   HAMBURGER — circle appears when open
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .hdr-hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   background: none;
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 6px;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
   z-index: 1100;
   position: relative;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.hdr-hamburger.open {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: rgba(74, 222, 128, 0.07);
 }
 
 .hdr-ham-line {
   display: block;
-  width: 22px;
+  width: 18px;
   height: 1px;
   background: #4ADE80;
   transition: all 0.3s ease;
@@ -159,7 +170,7 @@ body {
 .hdr-ham-line.open:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   OVERLAY BACKDROP — separate element, not ::before
+   OVERLAY BACKDROP
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .hdr-overlay {
   display: none;
@@ -186,47 +197,22 @@ body {
   background: #080808;
   border-left: 1px solid rgba(74, 222, 128, 0.1);
   position: fixed;
-  top: 0;
+  top: 72px; /* header height — starts below header so border doesn't show through */
   right: 0;
-  bottom: 0;
   width: 260px;
+  height: calc(100vh - 72px);
+  height: calc(100dvh - 72px);
   z-index: 999;
-  padding: 100px 24px 40px;
+  padding: 24px 24px 40px;
   box-sizing: border-box;
   transform: translateX(100%);
   transition: transform 0.32s ease;
   overflow-y: auto;
-  /* Fix for iOS Safari — ensure full height */
-  height: 100%;
-  height: -webkit-fill-available;
+  padding-top: 60px;
 }
 
 .hdr-mobile-menu.open {
   transform: translateX(0);
-}
-
-.hdr-drawer-close {
-  position: absolute;
-  top: 24px;
-  right: 20px;
-  background: none;
-  border: 1px solid rgba(74, 222, 128, 0.2);
-  border-radius: 50%;
-  color: #4ADE80;
-  font-size: 0.8rem;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-  flex-shrink: 0;
-}
-
-.hdr-drawer-close:hover {
-  border-color: rgba(74, 222, 128, 0.6);
-  background: rgba(74, 222, 128, 0.07);
 }
 
 .hdr-mobile-link {
@@ -242,7 +228,6 @@ body {
   box-sizing: border-box;
   text-align: center;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
-  /* Ensure minimum tap target */
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -272,7 +257,6 @@ body {
     linear-gradient(#080808, #080808) padding-box,
     linear-gradient(135deg, #39FF14, #4ADE80, #10B981) border-box;
   transition: box-shadow 0.2s;
-  /* Ensure minimum tap target */
   min-height: 44px;
   display: flex;
   align-items: center;
@@ -289,8 +273,8 @@ body {
 @media (max-width: 900px) {
   :root { --hdr-px: 24px; }
 
-  .hdr-nav     { display: none; }
-  .hdr-cta     { display: none; }
+  .hdr-nav         { display: none; }
+  .hdr-cta         { display: none; }
   .hdr-hamburger   { display: flex; }
   .hdr-overlay     { display: block; pointer-events: none; }
   .hdr-overlay.open { pointer-events: auto; }

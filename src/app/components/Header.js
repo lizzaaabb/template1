@@ -31,59 +31,44 @@ export default function Header() {
 
   return (
     <>
-      {/* Overlay backdrop — separate from drawer so it covers full screen */}
+      {/* ── Overlay ── */}
       <div
         className={`hdr-overlay ${menuOpen ? 'open' : ''}`}
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
       />
 
+      {/* ── Header bar ── */}
       <header className="hdr-outer" role="banner">
         <nav className="hdr-inner" aria-label="მთავარი ნავიგაცია">
 
-          {/* Logo */}
           <a
             href="#home"
             className="hdr-logo-wrap"
             onClick={e => handleScroll(e, '#home')}
             aria-label="მთავარ გვერდზე გადასვლა"
           >
-            <img
-              src={Logo}
-              alt="ლოგო"
-              className="hdr-logo"
-              width="72"
-              height="72"
-              loading="eager"
-            />
+            <img src={Logo} alt="ლოგო" className="hdr-logo" width="72" height="72" loading="eager" />
           </a>
 
-          {/* Desktop nav */}
           <ul className="hdr-nav" role="list">
             {navLinks.map((link, i) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="hdr-nav-link"
-                  onClick={e => handleScroll(e, link.href)}
-                >
+                <a href={link.href} className="hdr-nav-link" onClick={e => handleScroll(e, link.href)}>
                   {link.label}
                 </a>
-                {i < navLinks.length - 1 && (
-                  <span className="hdr-nav-divider" aria-hidden="true" />
-                )}
+                {i < navLinks.length - 1 && <span className="hdr-nav-divider" aria-hidden="true" />}
               </li>
             ))}
           </ul>
 
-          {/* CTA */}
           <a href={PHONE} className="hdr-cta" aria-label={`დაგვიკავშირდი - ${PHONE_LBL}`}>
             დაგვიკავშირდი
           </a>
 
-          {/* Hamburger */}
+          {/* Hamburger — animates into X when open */}
           <button
-            className="hdr-hamburger"
+            className={`hdr-hamburger ${menuOpen ? 'open' : ''}`}
             onClick={() => setMenuOpen(o => !o)}
             aria-label={menuOpen ? 'მენიუს დახურვა' : 'მენიუს გახსნა'}
             aria-expanded={menuOpen}
@@ -95,43 +80,36 @@ export default function Header() {
           </button>
 
         </nav>
-
-        {/* Mobile drawer */}
-        <div
-          id="mobile-menu"
-          className={`hdr-mobile-menu ${menuOpen ? 'open' : ''}`}
-          aria-hidden={!menuOpen}
-        >
-          <button
-            className="hdr-drawer-close"
-            onClick={() => setMenuOpen(false)}
-            aria-label="მენიუს დახურვა"
-          >
-            ✕
-          </button>
-
-          {navLinks.map(link => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hdr-mobile-link"
-              onClick={e => handleNav(e, link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
-
-          <a
-            href={PHONE}
-            className="hdr-mobile-cta"
-            onClick={() => setMenuOpen(false)}
-            aria-label={`დაგვიკავშირდი - ${PHONE_LBL}`}
-          >
-            დაგვიკავშირდი
-          </a>
-        </div>
-
       </header>
+
+      {/* ── Mobile drawer — no close button inside ── */}
+      <div
+        id="mobile-menu"
+        className={`hdr-mobile-menu ${menuOpen ? 'open' : ''}`}
+        aria-hidden={!menuOpen}
+        role="dialog"
+        aria-modal="true"
+      >
+        {navLinks.map(link => (
+          <a
+            key={link.label}
+            href={link.href}
+            className="hdr-mobile-link"
+            onClick={e => handleNav(e, link.href)}
+          >
+            {link.label}
+          </a>
+        ))}
+
+        <a
+          href={PHONE}
+          className="hdr-mobile-cta"
+          onClick={() => setMenuOpen(false)}
+          aria-label={`დაგვიკავშირდი - ${PHONE_LBL}`}
+        >
+          დაგვიკავშირდი
+        </a>
+      </div>
     </>
   )
 }
