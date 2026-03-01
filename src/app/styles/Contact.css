@@ -51,7 +51,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.65rem;
   font-weight: 400;
   letter-spacing: 0.3em;
@@ -72,7 +72,7 @@
 }
 
 .cnt-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 3.6rem;
   font-weight: 800;
   color: #ffffff;
@@ -89,7 +89,7 @@
 }
 
 .cnt-subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.92rem;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.45);
@@ -111,7 +111,7 @@
   display: inline-block;
   padding: 14px 40px;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -133,7 +133,7 @@
   display: inline-block;
   padding: 13px 40px;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.78rem;
   font-weight: 300;
   letter-spacing: 0.1em;
@@ -210,7 +210,7 @@
 }
 
 .cnt-item-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.62rem;
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -220,7 +220,7 @@
 }
 
 .cnt-item-value {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.88rem;
   font-weight: 300;
   color: rgba(255,255,255,0.8);
@@ -246,7 +246,7 @@
 }
 
 .cnt-socials-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.62rem;
   font-weight: 400;
   letter-spacing: 0.15em;
@@ -270,7 +270,7 @@
   background: rgba(255,255,255,0.02);
   color: rgba(255,255,255,0.5);
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.72rem;
   font-weight: 300;
   letter-spacing: 0.06em;
@@ -296,7 +296,7 @@
 }
 
 .cnt-footer-text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.68rem;
   font-weight: 300;
   color: rgba(255,255,255,0.22);

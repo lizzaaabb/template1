@@ -75,7 +75,7 @@ html {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 3;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
 }
 
 .hero-badge--left {
@@ -133,7 +133,7 @@ html {
   width: 100%;
   padding: 40px 24px 80px;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
 }
 
 /* ─── EYEBROW ─── */
@@ -207,7 +207,7 @@ html {
   display: inline-block;
   padding: 14px 40px;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -230,7 +230,7 @@ html {
   display: inline-block;
   padding: 13px 40px;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.78rem;
   font-weight: 300;
   letter-spacing: 0.1em;
@@ -279,7 +279,7 @@ html {
 }
 
 .hero-scroll-lbl {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Noto Sans Georgian", sans-serif;
   font-size: 0.58rem;
   font-weight: 300;
   letter-spacing: 0.3em;
